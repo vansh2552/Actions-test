@@ -16,6 +16,9 @@ jobs:
       - name: hello world
         run: echo "Hello world"
         shell: bash
+      - name: just checking
+        run: echo "just checking"
+        shell: bash
   goodbye:
     runs-on: self-hosted
     steps:
