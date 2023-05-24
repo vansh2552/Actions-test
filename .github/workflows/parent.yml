@@ -1,0 +1,40 @@
+name: Parent Pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Trigger Child Pipeline 1
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const childRun = await github.actions.createWorkflowDispatch({
+              owner: 'vansh2552',
+              repo: 'Actions-test',
+              workflow_id: '.github/workflows/child-workflow-1.yml',
+              ref: 'master'
+            });
+            console.log(`Child Pipeline 1 triggered. Run ID: ${childRun.data.id}`);
+
+      - name: Trigger Child Pipeline 2
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const childRun = await github.actions.createWorkflowDispatch({
+              owner: 'vansh2552',
+              repo: 'Actions-test',
+              workflow_id: '.github/workflows/child-workflow-2.yml',
+              ref: 'master'
+            });
+            console.log(`Child Pipeline 2 triggered. Run ID: ${childRun.data.id}`);
