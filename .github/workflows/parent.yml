@@ -16,7 +16,7 @@ jobs:
       - name: Trigger Child Pipeline 1
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.ACTIONS_SECRET }}
           script: |
             const childRun = await github.actions.createWorkflowDispatch({
               owner: 'vansh2552',
@@ -28,7 +28,7 @@ jobs:
       - name: Trigger Child Pipeline 2
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.ACTIONS_SECRET }}
           script: |
             const childRun = await github.actions.createWorkflowDispatch({
               owner: 'vansh2552',
