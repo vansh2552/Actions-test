@@ -20,6 +20,7 @@ jobs:
         run: echo "just checking"
         shell: bash
   goodbye:
+    needs: hello
     runs-on: self-hosted
     steps:
       - name: goodbye world
