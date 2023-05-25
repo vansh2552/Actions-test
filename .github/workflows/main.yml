@@ -11,9 +11,11 @@ on:
 
 jobs:
   hello:
+    
     runs-on: self-hosted
+    
     steps:
-      
+      - uses: actions/checkout@v2
       - name: hello world
         run: echo "Hello world"
         shell: bash
