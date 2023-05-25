@@ -29,3 +29,10 @@ jobs:
       - name: goodbye world
         run: echo "Goodbye world"
         shell: bash
+  goodbye2:
+    needs: hello
+    runs-on: self-hosted
+    steps:
+      - name: goodbye world
+        run: echo "Goodbye world"
+        shell: bash
