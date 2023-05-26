@@ -28,7 +28,7 @@ jobs:
      shell: bash
      
  job4:
-  needs: job1
+  needs: [job1, job2, job3]
   runs-on: self-hosted
   steps:
    - uses: actions/checkout@v2
@@ -37,7 +37,7 @@ jobs:
      run: echo "job 1"
      
  job5:
-  needs: job1
+  needs: [job1, job2, job3]
   runs-on: self-hosted
   steps:
    - uses: actions/checkout@v2
@@ -46,7 +46,7 @@ jobs:
      shell: bash
      
  job6:
-  needs: job1
+  needs: [job1, job2, job3]
   runs-on: self-hosted
   steps:
    - uses: actions/checkout@v2
