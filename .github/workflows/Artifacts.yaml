@@ -1,9 +1,7 @@
 name: Generate Hello World File
 
 on:
-  push:
-    branches:
-      - main
+ workflow_dispatch
 
 jobs:
   generate_file:
