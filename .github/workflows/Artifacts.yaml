@@ -1,24 +1,24 @@
-name: Artifacts generation
+name: Generate Hello World File
+
 on:
-
- workflow_dispatch:
-
+  push:
+    branches:
+      - main
 
 jobs:
-  artifacts_generation:
-   runs-on: ubuntu-latest
-   steps:
-    - name: create a folder
-      run: mkdir downloads
-      
-    - name: add artifacts
-      run: |
-          cd downloads
-          echo "hello world" > hello.txt
-          cd ..
-          
-    - name: Use the upload artifacts github action
-      uses: actions/upload-artifact@v2 
-      with:
-       name: hello.txt download
-       paths: downloads
+  generate_file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Generate Hello World File
+        run: |
+          echo "Hello World" > hello.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: hello-artifact
+          path: hello.txt
