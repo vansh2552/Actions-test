@@ -1,4 +1,4 @@
-name: Hello world workflow
+name: Artifacts generation
 on:
 
  workflow_dispatch:
