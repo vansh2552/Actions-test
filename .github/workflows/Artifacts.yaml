@@ -1,0 +1,24 @@
+name: Hello world workflow
+on:
+
+ workflow_dispatch:
+
+
+jobs:
+  artifacts_generation:
+   runs-on: self-hosted
+   steps:
+    - name: create a folder
+      run: mkdir downloads
+      
+    - name: add artifacts
+      run: |
+          cd downloads
+          echo "hello world" > hello.txt
+          cd ..
+          
+    - name: Use the upload artifacts github action
+      uses: actions/upload-artifact@v2 
+      with:
+       name: hello.txt download
+       paths: downloads
