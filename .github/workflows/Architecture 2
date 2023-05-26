@@ -1,0 +1,56 @@
+name: architecture 2
+on:
+ workflow_dispatch:
+ 
+jobs:
+ job1:
+  runs-on: self-hosted
+  steps:
+   - uses: actions/checkout@v2
+   - name: job1
+     shell: bash
+     run: echo "job 1"
+     
+ job2:
+  runs-on: self-hosted
+  steps:
+   - uses: actions/checkout@v2
+   - name: job2
+     run: echo "job 2 "
+     shell: bash
+     
+ job3:
+  runs-on: self-hosted
+  steps:
+   - uses: actions/checkout@v2
+   - name: job3
+     run: echo "job3 "
+     shell: bash
+     
+ job4:
+  needs: job1
+  runs-on: self-hosted
+  steps:
+   - uses: actions/checkout@v2
+   - name: job1
+     shell: bash
+     run: echo "job 1"
+     
+ job5:
+  needs: job1
+  runs-on: self-hosted
+  steps:
+   - uses: actions/checkout@v2
+   - name: job2
+     run: echo "job 2 "
+     shell: bash
+     
+ job6:
+  needs: job1
+  runs-on: self-hosted
+  steps:
+   - uses: actions/checkout@v2
+   - name: job3
+     run: echo "job3 "
+     shell: bash
+ 
