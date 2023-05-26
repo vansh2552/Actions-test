@@ -1,0 +1,30 @@
+name: Architecture1
+on:
+  workflow_dispatch:
+
+jobs:
+ series1:
+  runs-on: self-hosted
+  steps:
+   - uses: actions/checkout@v2
+   - name: series1
+     run: echo "series 1"
+   - name: series2
+     run: echo "series 2"
+   - name: series3
+     run: echo "series 3"
+ 
+ series2:
+  runs-on: self-hosted
+  steps:
+   - uses: actions/checkout@v2
+   - name: series4
+     run: echo "series 4"
+   - name: series5
+     run: echo "series 5"
+   - name: series6
+     run: echo "series 6"
+ 
+ 
+     
+     
