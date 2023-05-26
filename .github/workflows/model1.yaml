@@ -8,11 +8,14 @@ jobs:
   steps:
    - uses: actions/checkout@v2
    - name: series1
+     shell: bash
      run: echo "series 1"
    - name: series2
      run: echo "series 2"
+     shell: bash
    - name: series3
      run: echo "series 3"
+     shell: bash
  
  series2:
   runs-on: self-hosted
