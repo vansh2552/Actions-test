@@ -6,7 +6,7 @@ on:
 
 jobs:
   artifacts_generation:
-   runs-on: self-hosted
+   runs-on: ubuntu-latest
    steps:
     - name: create a folder
       run: mkdir downloads
