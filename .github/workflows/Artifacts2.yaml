@@ -20,7 +20,7 @@ jobs:
 
   modify_file:
     needs: generate_file
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Download Artifact
