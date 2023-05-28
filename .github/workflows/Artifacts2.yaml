@@ -22,7 +22,7 @@ jobs:
    - name: download file
      uses: actions/download-artifact@v3
      with: 
-      name: hello file
+      name: hello-artifact
    - name: modify the file
      run: echo "updated line" >> hello.txt
     
