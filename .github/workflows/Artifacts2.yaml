@@ -1,37 +1,33 @@
-name: share data between artifacts
+name: sharing artifact
+
 on:
- workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
- upload:
-  runs-on: ubuntu-latest
-  steps:
+  generate_file:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Generate Hello World File
-        run: echo "Hello World" > hello.txt
+        run: |
+          echo "Hello World!" > hello.txt
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
           name: hello-artifact
           path: hello.txt
-  
- modify_file:
-    needs: upload
+
+  modify_file:
+    needs: generate_file
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download file
+      - name: Download Artifact
         uses: actions/download-artifact@v2
         with:
           name: hello-artifact
 
       - name: Modify Hello World File
         run: |
-          echo "Hello World - Modified" >> hello.txt
-    
-   
-  
-     
-     
-     
-  
+          echo "Hello World modified" >> hello.txt
