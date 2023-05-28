@@ -1,0 +1,34 @@
+name: share data between artifacts
+on:
+ workflow_dispatch:
+
+jobs:
+ upload:
+  runs-on: self-hosted
+  steps:
+   - name: generate file 
+     run: echo "Hello World" > hello.txt
+   
+   - name: upload file 
+     uses: actions/upload-artifact@v2
+     with:
+      name: hello file
+      path: hello.txt
+  
+ download:
+  runs-on: self-hosted
+  needs: upload
+  steps:
+   - name: download file
+     uses: actions/download-artifact@v3
+     with: 
+      name: hello file
+   - name: modify the file
+     run: echo "updated line" >> hello.txt
+    
+   
+  
+     
+     
+     
+  
