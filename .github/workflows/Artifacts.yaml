@@ -12,8 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Generate Hello World File
-        run: |
-          echo "Hello World" > hello.txt
+        run: echo "Hello World" > hello.txt
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
