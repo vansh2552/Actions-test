@@ -31,3 +31,8 @@ jobs:
       - name: Modify Hello World File
         run: |
           echo "Hello World modified" >> hello.txt
+      - name: Upload Modified Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: modified-hello-artifact
+          path: hello.txt
