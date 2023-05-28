@@ -4,16 +4,16 @@ on:
 
 jobs:
  upload:
-  runs-on: self-hosted
+  runs-on: ubuntu-latest
   steps:
-   - name: generate file 
-     run: echo "Hello World" > hello.txt
-   
-   - name: upload file 
-     uses: actions/upload-artifact@v2
-     with:
-      name: hello file
-      path: hello.txt
+      - name: Generate Hello World File
+        run: echo "Hello World" > hello.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: hello-artifact
+          path: hello.txt
   
  download:
   runs-on: self-hosted
