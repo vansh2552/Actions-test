@@ -22,6 +22,7 @@ jobs:
 
   modify_file:
     runs-on: ubuntu-latest
+    needs: generate_file
 
     steps:
       - name: Checkout code
