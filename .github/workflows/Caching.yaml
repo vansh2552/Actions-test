@@ -1,4 +1,4 @@
-name: Cache Example
+name: Cache and Modify File
 
 on:
   workflow_dispatch:
@@ -20,9 +20,8 @@ jobs:
           path: hello.txt
           key: ${{ runner.os }}-hello-file-${{ hashFiles('hello.txt') }}
 
-  retrieve_file:
+  modify_file:
     runs-on: ubuntu-latest
-    needs: generate_file
 
     steps:
       - name: Checkout code
@@ -35,5 +34,7 @@ jobs:
           path: hello.txt
           key: ${{ runner.os }}-hello-file-${{ hashFiles('hello.txt') }}
 
-      - name: Display Retrieved File
-        run: cat ${{ steps.restore.outputs.cache-hit }}/hello.txt
+      - name: Modify File
+        run: |
+          echo "Modified Line" >> ${{ steps.restore.outputs.cache-hit }}/hello.txt
+          cat ${{ steps.restore.outputs.cache-hit }}/hello.txt
