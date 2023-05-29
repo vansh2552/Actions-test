@@ -35,8 +35,5 @@ jobs:
           path: hello.txt
           key: ${{ runner.os }}-hello-file-${{ hashFiles('hello.txt') }}
 
-      - name: Save Retrieved File as Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: retrieved-file
-          path: ${{ steps.restore.outputs.cache-hit }}/hello.txt
+      - name: Display Retrieved File
+        run: cat ${{ steps.restore.outputs.cache-hit }}/hello.txt
