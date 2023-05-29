@@ -1,0 +1,41 @@
+name: Cache Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate_file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Generate Hello World File
+        run: echo "Hello World" > hello.txt
+
+      - name: Save Hello World File to Cache
+        uses: actions/cache@v2
+        with:
+          path: hello.txt
+          key: ${{ runner.os }}-hello-file-${{ hashFiles('hello.txt') }}
+
+  retrieve_file:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Restore Hello World File from Cache
+        id: restore
+        uses: actions/cache@v2
+        with:
+          path: hello.txt
+          key: ${{ runner.os }}-hello-file-${{ hashFiles('hello.txt') }}
+
+      - name: Save Retrieved File as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: retrieved-file
+          path: ${{ steps.restore.outputs.cache-hit }}/hello.txt
