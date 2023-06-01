@@ -1,4 +1,4 @@
-name: My Workflow
+name: working on error or not
 
 on:
   workflow_dispatch:
