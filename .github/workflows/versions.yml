@@ -12,5 +12,5 @@ jobs:
       - name: Run commands
         uses: matlab-actions/run-command@v1
         with:
-          script: matlab -nodisplay -nodesktop -r "ver; exit"
+          script: matlab -nodisplay -nodesktop -r "ver;"
             
