@@ -12,5 +12,5 @@ jobs:
       - name: Run commands
         uses: matlab-actions/run-command@v1
         with:
-          script: matlab -batch "list_software_versions.m"
+          script: matlab -nodisplay -nodesktop -r "ver; exit"
             
