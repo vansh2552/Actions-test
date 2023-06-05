@@ -54,11 +54,14 @@ jobs:
             04_Results/test_results
           key: cached-files
         
-      - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#       - name: Run the matlab version
+#         run: |
+#          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+#          $env:PATH += ";$pathToAdd"
+#          $env:PATH | Add-Content -Path $env:GITHUB_PATH
+
+      - name: Set up MATLAB path
+        run: echo "::add-path::\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
 
          
       - name: Launch MATLAB
@@ -81,11 +84,13 @@ jobs:
    steps:
    
      
-   - name: Run the matlab version
-     run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#    - name: Run the matlab version
+#      run: |
+#          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+#          $env:PATH += ";$pathToAdd"
+#          $env:PATH | Add-Content -Path $env:GITHUB_PATH
+   - name: Set up MATLAB path
+     run: echo "::add-path::\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
    - name: Launch MATLAB
      uses: matlab-actions/run-command@v1
      with:
@@ -390,13 +395,14 @@ jobs:
         run: echo "this job will run even if previous jobs failed"
         continue-on-error: true
       
-      - name: Run the matlab version
-        run: |
-         $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
-         $env:PATH += ";$pathToAdd"
-         $env:PATH | Add-Content -Path $env:GITHUB_PATH
+#       - name: Run the matlab version
+#         run: |
+#          $pathToAdd = "\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
+#          $env:PATH += ";$pathToAdd"
+#          $env:PATH | Add-Content -Path $env:GITHUB_PATH
 
-         
+      - name: Set up MATLAB path
+        run: echo "::add-path::\\mathworks\devel\sbs\37\vanshg.Bslcicd.j2276893.1\matlab\bin"
       - name: Launch MATLAB
         uses: matlab-actions/run-command@v1
         with:
