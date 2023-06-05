@@ -1,21 +1,16 @@
-name: List Software Versions
-
-on:
-  push:
-    branches:
-      - master
-
+name: Run MATLAB Commands on GitHub-Hosted Runner
+on: [push]
 jobs:
-  list-versions:
+  my-job:
+    name: Run MATLAB Commands
     runs-on: ubuntu-latest
-
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
       - name: Set up MATLAB
-        uses: matlab/setup-actions@v1
-
-      - name: Run MATLAB script
-        uses: matlab/script@v1
+        uses: matlab-actions/setup-matlab@v1
+      - name: Run commands
+        uses: matlab-actions/run-command@v1
         with:
-          script: |
-            disp("Listing software versions:")
-            matlab -batch "list_software_versions.m"
+          script: matlab -batch "list_software_versions.m"
+            
