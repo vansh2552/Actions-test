@@ -1,12 +1,16 @@
-name: Child Pipeline 1
+name: Child Workflow
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Child Step 1
-        run: echo "Child Step 1 executed"
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+    # Other steps of the child workflow
