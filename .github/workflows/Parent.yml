@@ -1,11 +1,7 @@
-
 name: Parent Workflow
 
 on:
-  workflow_run:
-    workflows: ["derived/Child Workflow"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   build:
