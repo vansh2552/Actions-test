@@ -1,10 +1,7 @@
 name: Child Pipeline 1
 
 on:
-  workflow_run:
-    workflows: ["Parent Pipeline"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   build:
