@@ -1,4 +1,4 @@
-name: Child Workflow
+name: Child Workflow 1
 
 on:
   workflow_dispatch:
