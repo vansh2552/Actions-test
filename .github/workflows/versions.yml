@@ -1,5 +1,5 @@
 name: check softwares
-on: [push]
+on: [workflow_dispatch]
 jobs:
   my-job:
     name: Run MATLAB Commands
