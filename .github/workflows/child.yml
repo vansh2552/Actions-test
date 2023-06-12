@@ -1,7 +1,10 @@
-name: Child Workflow 1
+name: Child Workflow
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: ["Parent Workflow"]
+    types:
+      - completed
 
 jobs:
   build:
@@ -10,5 +13,3 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
-
-    # Other steps of the child workflow
