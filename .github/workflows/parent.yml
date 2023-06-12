@@ -1,17 +1,16 @@
 name: Parent Workflow
 
 on:
-  workflow_run:
-    workflows: ["Child Workflow"]
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
-  build:
+  trigger_workflow:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      # Other steps of the workflow
+      - name: Trigger Target Workflow
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: vansh2552/Actions-test
+          event-type: trigger-workflow
+          workflow: derived/child.yaml
