@@ -2,7 +2,7 @@ name: Parent Workflow
 
 on:
   workflow_run:
-    workflows: ["child-workflow-1"]
+    workflows: ["Child Workflow"]
     types:
       - completed
 
