@@ -27,7 +27,7 @@ jobs:
      
   Actuator_control:
    runs-on: Windows
-   #needs: AHRS
+   needs: ModelPipelineExecution
    steps:
 
              
@@ -37,7 +37,7 @@ jobs:
   Fc:
    runs-on: Windows
    if: ${{ always() }}
-   #needs: AHRS_Generate_SDD_Report 
+   needs: ModelPipelineExecution 
    steps:
    
      
