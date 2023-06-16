@@ -1,0 +1,49 @@
+name: parallel architecture
+on: 
+  workflow_dispatch:
+  
+  
+jobs:
+  ModelPipelineExecution:
+    runs-on: Windows
+ 
+    steps:
+        
+      - name: MPE
+        run: echo "MPE"
+
+ 
+        
+          
+  AHRS:
+   runs-on: Windows
+
+   needs: ModelPipelineExecution
+   steps:
+             
+   - name: AHRS
+     run: echo "AHRS"
+     
+     
+  Actuator_control:
+   runs-on: Windows
+   #needs: AHRS
+   steps:
+
+             
+   - name: Upload artifacts
+     run: echo "AC"
+         
+  Fc:
+   runs-on: Windows
+   if: ${{ always() }}
+   #needs: AHRS_Generate_SDD_Report 
+   steps:
+   
+     
+   - name: Run the matlab version
+     run: echo "fc"
+          
+
+          
+
