@@ -1,0 +1,39 @@
+name: Upload Artifact Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Create abc.txt
+        run: echo "Hello, World!" > abc.txt
+
+      - name: Upload abc.txt as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: MyArtifact
+          path: abc.txt
+
+  job2:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Create new abc.txt
+        run: echo "New content" > abc.txt
+
+      - name: Upload new abc.txt as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: MyArtifact
+          path: abc.txt
