@@ -36,3 +36,11 @@ jobs:
         with:
           name: MyArtifact
           path: abc.txt
+          
+      - name: delete artifact 
+        uses: geekyeggo/delete-artifact@v2
+        with:
+            name: MyArtifact
+          
+
+      
