@@ -5,10 +5,12 @@ on:
 
 jobs:
   job1:
+    continue-on-error: True
     runs-on: ubuntu-latest
     steps:
        - name: Continue on Error
-         continue-on-error: True
+         run: echo "Hello world"
+         
        - name: Step 1 - Job 4 (Intentional Failure)
          run: exit 1
 
