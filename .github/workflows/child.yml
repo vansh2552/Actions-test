@@ -1,8 +1,8 @@
 name: Child Workflow
 
 on:
-  repository_dispatch:
-    types: [trigger-workflow-b]
+  workflow_call:
+
 
 jobs:
   build:
