@@ -1,13 +1,15 @@
-name: Child Pipeline
+name: Child Pipeline 1
 
 on:
-  repository_dispatch:
-  
+  workflow_run:
+    workflows: ["Parent Pipeline"]
+    types:
+      - completed
 
 jobs:
   build:
     runs-on: self-hosted
 
     steps:
-      - name: Child Step 2
-        run: echo "Child Step 2 executed"
+      - name: Child Step 1
+        run: echo "Child Step 1 executed"
