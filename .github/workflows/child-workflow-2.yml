@@ -1,4 +1,4 @@
-name: Child Pipeline 2
+name: Child Pipeline
 
 on:
   workflow_run:
