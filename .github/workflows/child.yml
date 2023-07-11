@@ -1,10 +1,8 @@
 name: Child Workflow
 
 on:
-  workflow_run:
-    workflows: ["Parent Workflow"]
-    types:
-      - completed
+  repository_dispatch:
+    types: [trigger-workflow-b]
 
 jobs:
   build:
