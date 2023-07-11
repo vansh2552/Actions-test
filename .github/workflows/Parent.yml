@@ -13,14 +13,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Trigger Child Pipeline 1
-        uses: actions/github-script@v4
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const childRun = await github.actions.createWorkflowDispatch({
-              owner: 'vansh2552',
-              repo: 'Actions-test',
-              workflow_id: '.github/workflows/child-workflow-1.yml',
-              ref: 'master'
-            });
+
